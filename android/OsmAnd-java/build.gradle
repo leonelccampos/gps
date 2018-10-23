@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "net.osmand.util.GeoPointParserUtil"
+
+
+tasks.withType(JavaCompile) {
+	sourceCompatibility = "1.7"
+	targetCompatibility = "1.7"
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ["src"]
+		}
+	}
+}
+
+configurations {
+	android
+}
+
+task androidJar(type: Jar) {
+	appendix = "android"
+	from sourceSets.main.output
+	exclude("**/PlatformUtil.*")
+}
+
+artifacts {
+	android androidJar
+}
+
+dependencies {
+	compile fileTree(dir: "libs", include: ["*.jar"])
+}
+

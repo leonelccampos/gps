@@ -1,0 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter() // add this
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
